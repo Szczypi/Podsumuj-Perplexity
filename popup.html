@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ustawienia podsumowań</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 8px 12px;
+      background: #f8f9fa;
+      color: #222;
+      min-width: 280px;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+    }
+
+    legend {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    label {
+      font-size: 13px;
+      display: block;
+      margin: 4px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #saveBtn {
+      background: #0060df;
+      color: #fff;
+    }
+
+    #summarizeBtn {
+      background: #00a400;
+      color: #fff;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-size: 12px;
+      display: none;
+    }
+
+    .status.success {
+      color: #008000;
+    }
+
+    .status.error {
+      color: #c00000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ustawienia</h1>
+
+  <fieldset>
+    <legend>Długość</legend>
+    <label><input type="radio" name="summaryMode" value="short" /> Krótkie</label>
+    <label><input type="radio" name="summaryMode" value="long" /> Długie</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Format</legend>
+    <label><input type="radio" name="summaryFormat" value="paragraph" /> Akapity</label>
+    <label><input type="radio" name="summaryFormat" value="bullets" /> Punktowo</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Opcje</legend>
+    <label><input type="checkbox" id="autoSummarize" /> Automatyczne podsumowania</label>
+    <label><input type="checkbox" id="showInSidebar" checked /> Pokazuj w panelu bocznym</label>
+  </fieldset>
+
+  <div class="buttons">
+    <button id="saveBtn">Zapisz ustawienia</button>
+    <button id="summarizeBtn">Podsumuj stronę</button>
+  </div>
+
+  <div id="status" class="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
