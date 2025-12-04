@@ -23,7 +23,7 @@ Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły
 ## Instalacja z kodu źródłowego
 
 1. Sklonuj repozytorium lub pobierz paczkę ZIP z GitHuba.
-2. Otwórz w Firefoksie stronę `about:debugging#/runtime/this-firefox`.
+2. Otwórz w Firefoksie stronę `about:debugging/runtime/this-firefox`.
 3. Kliknij **Load Temporary Add-on** / **Załaduj tymczasowy dodatek**.
 4. Wskaż plik `manifest.json` z folderu rozszerzenia.
 
