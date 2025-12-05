@@ -1,4 +1,4 @@
-# Perplexity Summarizer – dodatek do Firefoksa
+# Perplexity Summarizer – dodatek do Firefoxa
 
 Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
@@ -11,7 +11,7 @@ Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły
   - lista punktów.
 - Opcja automatycznego podsumowywania nowych artykułów po załadowaniu strony.
 - Możliwość wyboru:
-  - wyświetlania streszczenia w panelu bocznym Firefoksa,
+  - wyświetlania streszczenia w panelu bocznym Firefoxa,
   - albo otwierania nowej karty z Perplexity i gotowym promptem.
 - Kontekstowe menu (prawy przycisk myszy) do podsumowania całej strony lub zaznaczonego tekstu.
 
@@ -33,7 +33,7 @@ Dodatek zostanie załadowany tymczasowo (do restartu przeglądarki).
 
 Po zainstalowaniu:
 
-1. Kliknij ikonę dodatku na pasku narzędzi Firefoksa.
+1. Kliknij ikonę dodatku na pasku narzędzi Firefoxa.
 2. W oknie ustawień wybierz:
    - długość podsumowania: **Krótkie** lub **Długie**,
    - format: **Akapity** lub **Punktowo**,
