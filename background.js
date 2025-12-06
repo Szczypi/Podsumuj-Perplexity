@@ -218,7 +218,6 @@ ${content}`;
   }
 }
 
-// tryb: pełna Perplexity w nowej karcie
 async function openPerplexityForTab(tab, isSelection, selectionText, settings) {
   try {
     let data;
@@ -372,7 +371,6 @@ function extractMainContent() {
   };
 }
 
-// komunikacja z popupem
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "getSettings") {
     browser.storage.local.get("settings").then((res) => {
