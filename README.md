@@ -22,25 +22,25 @@ Rozszerzenie do przeglądarki Firefox, który streszcza aktualnie oglądane arty
 
 # Instalacja z kodu źródłowego
 
-*Rozszerzenie można zainstalować na dwa sposoby:*
+Rozszerzenie można zainstalować na dwa sposoby:
 
 1. Sklonuj repozytorium lub pobierz paczkę ZIP z GitHuba.
 2. Otwórz w Firefoxie stronę `about:debugging#/runtime/this-firefox`.
 3. Kliknij **Load Temporary Add-on** / **Załaduj tymczasowy dodatek**.
 4. Wskaż plik `manifest.json` z folderu rozszerzenia.
 
-*Dodatek zostanie załadowany testowo (do restartu przeglądarki).*
+Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 
 1. Kup na Allegro subskrypcje Perplexity Pro i wygeneruj klucz API.
 2. Wklej klucz do pliku `background.js` i spakuj w ZIP pobrane pliki.
 3. Wyślij spakowany plik do podpisu w **Mozilla ADD-ONS** / **Dodatki do Firefoxa**.
 4. Otrzymany plik `perplexity-summarizer.xpi` zainstaluj w rozszerzenia.
 
-*Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.*
+Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
 # Konfiguracja
 
-*Po zainstalowaniu:*
+Po zainstalowaniu:
 
 1. Kliknij ikonę dodatku na pasku narzędzi Firefoxa.
 2. W oknie ustawień wybierz:
@@ -51,7 +51,7 @@ Rozszerzenie do przeglądarki Firefox, który streszcza aktualnie oglądane arty
      - Otwierać się w nowej karcie Perplexity.
 3. (Opcjonalnie) Włącz automatyczne podsumowywanie artykułów po załadowaniu strony.
 
-*Przycisk **„Podsumuj stronę”** użyje aktualnie zapisanych ustawień.*
+Przycisk **„Podsumuj stronę”** użyje aktualnie zapisanych ustawień.
 
 ## Bezpieczeństwo i uprawnienia
 
