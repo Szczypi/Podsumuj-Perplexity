@@ -55,4 +55,4 @@ Dodatek potrzebuje dostępu do treści stron, aby móc je streszczać. Nie zapis
 
 ## Licencja
 
-X11 License.
+MIT/X11 License.
