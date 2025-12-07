@@ -32,7 +32,7 @@ Rozszerzenie można włączyć na dwa sposoby:
 
 Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 
-6. Wyślij spakowany plik do podpisu w **Mozilla ADD-ONS** / **Dodatki do Firefoxa**.
+6. Wyślij spakowany plik do podpisu w **Dodatki do Firefoxa**.
 7. Otrzymany plik `perplexity-summarizer.xpi` zainstaluj w rozszerzenia.
 
 Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
