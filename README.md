@@ -31,7 +31,7 @@ Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 
 1. Kup na Allegro subskrypcje Perplexity Pro i wygeneruj klucz API.
 2. Wklej klucz do pliku `background.js` i spakuj pobrane pliki w ZIP.
-3. Wyślij spakowany plik ZIP do podpisu w **Mozilla ADD-ONS**.
+3. Wyślij spakowany plik do podpisu w **Mozilla ADD-ONS** / **Dodatki do Firefoxa**.
 4. Podpisany plik `perplexity-summarizer.xpi` zainstaluj w rozszerzenia.
 
 Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
