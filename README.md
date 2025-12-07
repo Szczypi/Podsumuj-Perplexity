@@ -2,7 +2,7 @@
 
 Rozszerzenie do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
-# Najważniejsze funkcje
+## Najważniejsze funkcje
 
 - Podsumowywanie bieżącej strony jednym kliknięciem.
 - Tryb krótkiego lub dłuższego podsumowania.
@@ -15,12 +15,12 @@ Rozszerzenie do przeglądarki Firefox, który streszcza aktualnie oglądane arty
   - Otwierania nowej karty z Perplexity i gotowym promptem.
 - Kontekstowe menu (prawy przycisk myszy) do podsumowania całej strony lub zaznaczonego tekstu.
 
-# Wymagania
+## Wymagania
 
 - Firefox z obsługą WebExtensions (Manifest V3).
 - Klucz API Perplexity (wstawiany w `background.js` w stałej `PERPLEXITY_API_KEY`).
 
-# Instalacja z kodu źródłowego
+## Instalacja z kodu źródłowego
 
 Rozszerzenie można zainstalować na dwa sposoby:
 
@@ -38,7 +38,7 @@ Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 
 Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
-# Konfiguracja
+## Konfiguracja
 
 Po zainstalowaniu:
 
