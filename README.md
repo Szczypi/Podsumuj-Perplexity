@@ -34,7 +34,7 @@ Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 3. Wyślij spakowany plik ZIP do podpisu w **Mozilla ADD-ONS**.
 4. Podpisany plik `perplexity-summarizer.xpi` załaduj w rozszerzenia.
 
-Dodatek będzie uruchamiać się z przeglądarką Firefox.
+Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
 ## Konfiguracja
 
