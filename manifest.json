@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Podsumuj w Perplexity",
   "version": "1.0",
-  "description": "Inteligentne podsumowania stron z panelem bocznym w Perplexity AI.",
+  "description": "Inteligentne podsumowania stron Firefox z panelem bocznym w Perplexity AI.",
   "permissions": [
     "contextMenus",
     "scripting",
