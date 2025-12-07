@@ -1,6 +1,6 @@
-# Perplexity Summarizer
+# Podsumuj w Perplexity
 
-Rozszerzenie do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
+Rozszerzenie do przeglądarki Firefox, które streszcza aktualnie oglądane artykuły przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
 ## Najważniejsze funkcje
 
@@ -17,24 +17,23 @@ Rozszerzenie do przeglądarki Firefox, który streszcza aktualnie oglądane arty
 
 ## Wymagania
 
-- Firefox z obsługą WebExtensions (Manifest V3).
-- Klucz API Perplexity (wstawiany w `background.js` w stałej `PERPLEXITY_API_KEY`).
+- Najnowsza wersja przeglądarki Firefox.
+- Klucz API od Perplexity (wpisany w miejscu `KLUCZ_API_PERPLEXITY`).
 
 ## Instalacja z kodu źródłowego
 
-Rozszerzenie można zainstalować na dwa sposoby:
+Rozszerzenie można włączyć na dwa sposoby:
 
-1. Sklonuj repozytorium lub pobierz paczkę ZIP z GitHuba.
-2. Otwórz w Firefoxie stronę `about:debugging#/runtime/this-firefox`.
-3. Kliknij **Load Temporary Add-on** / **Załaduj tymczasowy dodatek**.
-4. Wskaż plik `manifest.json` z folderu rozszerzenia.
+1. Kup na Allegro subskrypcje Perplexity Pro i wygeneruj klucz API.
+2. Sklonuj repozytorium lub pobierz paczkę ZIP z GitHuba.
+3. Wklej klucz do pliku `background.js` i spakuj w ZIP pobrane pliki.
+4. Otwórz w Firefoxie stronę `about:debugging#/runtime/this-firefox`.
+5. Kliknij **Załaduj tymczasowy dodatek** i wybierz plik `manifest.json`.
 
 Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 
-1. Kup na Allegro subskrypcje Perplexity Pro i wygeneruj klucz API.
-2. Wklej klucz do pliku `background.js` i spakuj w ZIP pobrane pliki.
-3. Wyślij spakowany plik do podpisu w **Mozilla ADD-ONS** / **Dodatki do Firefoxa**.
-4. Otrzymany plik `perplexity-summarizer.xpi` zainstaluj w rozszerzenia.
+6. Wyślij spakowany plik do podpisu w **Mozilla ADD-ONS** / **Dodatki do Firefoxa**.
+7. Otrzymany plik `perplexity-summarizer.xpi` zainstaluj w rozszerzenia.
 
 Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
