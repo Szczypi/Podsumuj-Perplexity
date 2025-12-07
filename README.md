@@ -38,8 +38,6 @@ Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
 ## Konfiguracja
 
-Po zainstalowaniu:
-
 1. Kliknij ikonę dodatku na pasku narzędzi Firefoxa.
 2. W oknie ustawień wybierz:
    - długość podsumowania: **Krótkie** lub **Długie**,
