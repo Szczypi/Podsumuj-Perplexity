@@ -22,6 +22,8 @@ Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły
 
 ## Instalacja z kodu źródłowego
 
+Rozszerzenie można zainstalować na dwa sposoby:
+
 1. Sklonuj repozytorium lub pobierz paczkę ZIP z GitHuba.
 2. Otwórz w Firefoxie stronę `about:debugging#/runtime/this-firefox`.
 3. Kliknij **Load Temporary Add-on** / **Załaduj tymczasowy dodatek**.
@@ -37,6 +39,8 @@ Dodatek zostanie załadowany testowo (do restartu przeglądarki).
 Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
 ## Konfiguracja
+
+Po zainstalowaniu:
 
 1. Kliknij ikonę dodatku na pasku narzędzi Firefoxa.
 2. W oknie ustawień wybierz:
