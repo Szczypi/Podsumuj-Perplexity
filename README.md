@@ -1,4 +1,4 @@
-# Perplexity Summarizer – dodatek do Firefoxa
+# Perplexity Summarizer – Dodatek do Firefoxa
 
 Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
@@ -7,12 +7,12 @@ Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły
 - Podsumowywanie bieżącej strony jednym kliknięciem.
 - Tryb krótkiego lub dłuższego podsumowania.
 - Dwa formaty wyników:
-  - jeden lub kilka akapitów,
-  - lista punktów.
+  - Jeden lub kilka akapitów,
+  - Lista punktów.
 - Opcja automatycznego podsumowywania nowych artykułów po załadowaniu strony.
 - Możliwość wyboru:
-  - wyświetlania streszczenia w panelu bocznym Firefoxa,
-  - albo otwierania nowej karty z Perplexity i gotowym promptem.
+  - Wyświetlania streszczenia w panelu bocznym Firefoxa,
+  - Albo otwierania nowej karty z Perplexity i gotowym promptem.
 - Kontekstowe menu (prawy przycisk myszy) do podsumowania całej strony lub zaznaczonego tekstu.
 
 ## Wymagania
@@ -40,11 +40,11 @@ Rozszerzenie będzie uruchamiać się z przeglądarką Firefox.
 
 1. Kliknij ikonę dodatku na pasku narzędzi Firefoxa.
 2. W oknie ustawień wybierz:
-   - długość podsumowania: **Krótkie** lub **Długie**,
-   - format: **Akapity** lub **Punktowo**,
-   - czy podsumowanie ma:
-     - pojawiać się w panelu bocznym,
-     - czy otwierać się w nowej karcie Perplexity.
+   - Długość podsumowania: **Krótkie** lub **Długie**,
+   - Format: **Akapity** lub **Punktowo**,
+   - Czy podsumowanie ma:
+     - Pojawiać się w panelu bocznym,
+     - Pzy otwierać się w nowej karcie Perplexity.
 3. (Opcjonalnie) włącz automatyczne podsumowywanie artykułów po załadowaniu strony.
 
 Przycisk **„Podsumuj stronę”** użyje aktualnie zapisanych ustawień.
