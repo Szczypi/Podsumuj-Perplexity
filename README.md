@@ -55,7 +55,7 @@ Przycisk **„Podsumuj stronę”** użyje aktualnie zapisanych ustawień.
 
 ## Bezpieczeństwo i uprawnienia
 
-Dodatek potrzebuje dostępu do treści stron, aby móc je streszczać. Nie zapisuje lokalnie danych logowania ani nie wysyła ich świadomie do zewnętrznych usług, do API Perplexity przekazywany jest wyłącznie tekst strony lub zaznaczonego fragmentu. Przed użyciem wrażliwych serwisów (np. bankowość, panel transakcyjny) zaleca się świadome zarządzanie uprawnieniami rozszerzenia w ustawieniach Firefoxa.
+Dodatek potrzebuje dostępu do treści stron, aby móc je streszczać. Nie zapisuje lokalnie danych logowania ani nie wysyła ich świadomie do zewnętrznych usług, do API Perplexity przekazywany jest wyłącznie tekst strony lub zaznaczonego fragmentu. Przed użyciem wrażliwych serwisów (np. bankowość, panele logowania) zaleca się świadome zarządzanie uprawnieniami rozszerzenia w ustawieniach Firefoxa.
 
 ## Licencja
 
