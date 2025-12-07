@@ -27,7 +27,14 @@ Dodatek do przeglądarki Firefox, który streszcza aktualnie oglądane artykuły
 3. Kliknij **Load Temporary Add-on** / **Załaduj tymczasowy dodatek**.
 4. Wskaż plik `manifest.json` z folderu rozszerzenia.
 
-Dodatek zostanie załadowany tymczasowo (do restartu przeglądarki).
+Dodatek zostanie załadowany testowo (do restartu przeglądarki).
+
+1. Kup na Allegro subskrypcje Perplexity Pro i wygeneruj klucz API.
+2. Wklej klucz do pliku `background.js` i spakuj pobrane pliki w ZIP.
+3. Wyślij spakowany plik ZIP do podpisu w **Mozilla ADD-ONS**.
+4. Podpisany plik `perplexity-summarizer.xpi` załaduj w rozszerzenia.
+
+Dodatek będzie uruchamiać się z przeglądarką Firefox.
 
 ## Konfiguracja
 
