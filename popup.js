@@ -45,22 +45,30 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
 
     console.log("Zapisuję ustawienia:", settings);
 
-    await browser.runtime.sendMessage({
+    const response = await browser.runtime.sendMessage({
       action: "saveSettings",
       settings
     });
 
     const status = document.getElementById("status");
-    status.textContent = "✓ Zapisano pomyślnie!";
-    status.className = "status success";
+
+    if (response && response.success) {
+        status.textContent = "✓ Zapisano pomyślnie!";
+        status.className = "status success";
+    } else {
+        console.error("Błąd zapisu z background.js:", response.error || "Nieznany błąd");
+        status.textContent = `✗ Błąd zapisu! (${response.error ? response.error.substring(0, 50) : "Wystąpił błąd"})`;
+        status.className = "status error";
+    }
+
     status.style.display = "block";
     setTimeout(() => {
       status.style.display = "none";
     }, 2000);
   } catch (error) {
-    console.error("Błąd zapisu:", error);
+    console.error("Błąd komunikacji/zapisu:", error);
     const status = document.getElementById("status");
-    status.textContent = "✗ Błąd zapisu!";
+    status.textContent = "✗ Błąd zapisu! (Błąd komunikacji z rozszerzeniem)";
     status.className = "status error";
     status.style.display = "block";
   }
