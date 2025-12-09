@@ -1,6 +1,6 @@
 # Podsumuj w Perplexity
 
-Rozszerzenie do przeglądarki Firefox, które streszcza aktualnie oglądane artykuły przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
+Rozszerzenie do przeglądarki Firefox, które streszcza aktualnie oglądane filmy na YouTube oraz czytane artykuły ze stron internetowych zeprzy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
 ## Najważniejsze funkcje
 
@@ -9,7 +9,7 @@ Rozszerzenie do przeglądarki Firefox, które streszcza aktualnie oglądane arty
 - Dwa formaty wyników:
   - Jeden lub kilka akapitów,
   - Lista punktów.
-- Opcja automatycznego podsumowywania nowych artykułów po załadowaniu strony.
+- Opcja automatycznego podsumowywania nowych artykułów i wideo po załadowaniu strony.
 - Możliwość wyboru:
   - Wyświetlania streszczenia w panelu bocznym Firefoxa,
   - Otwierania nowej karty z Perplexity i gotowym promptem.
@@ -25,7 +25,7 @@ Rozszerzenie do przeglądarki Firefox, które streszcza aktualnie oglądane arty
 Rozszerzenie można włączyć na dwa sposoby:
 
 1. Kup na Allegro subskrypcje Perplexity Pro i wygeneruj klucz API.
-2. Sklonuj repozytorium lub [pobierz paczkę ZIP](https://github.com/Szczypi/Podsumuj-Perplexity/archive/refs/tags/1.0.zip) z GitHuba.
+2. Sklonuj repozytorium lub [pobierz paczkę ZIP](https://github.com/Szczypi/Podsumuj-Perplexity/archive/refs/tags/1.3.zip) z GitHuba.
 3. Wklej klucz do pliku `background.js` i spakuj w ZIP pobrane pliki.
 4. Otwórz w Firefoxie stronę `about:debugging#/runtime/this-firefox`.
 5. Kliknij **Załaduj tymczasowy dodatek** i wybierz plik `manifest.json`.
