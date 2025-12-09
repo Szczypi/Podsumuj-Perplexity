@@ -208,9 +208,8 @@ URL filmu: ${data.url}
 Tytuł filmu: ${data.title}`;
   }
   else if (data.isSelection) {
-    prompt = `Jesteś narzędziem do podsumowywania tekstu.
-Podsumuj poniższy tekst ${lengthHint}.
-**ABSOLUTNIE nie korzystaj z Internetu, wiedzy ogólnej ani kontekstu spoza tego tekstu.**
+    prompt = `Podsumuj poniższy tekst ${lengthHint}.
+Nie korzystaj z internetu, wiedzy ogólnej ani kontekstu spoza tego tekstu.
 Skup się wyłącznie na najważniejszych faktach i wnioskach.
 Pomiń przykłady, dygresje, cytaty, opinie i źródła.
 
