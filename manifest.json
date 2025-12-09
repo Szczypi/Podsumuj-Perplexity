@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Podsumuj w Perplexity",
-  "version": "1.0",
+  "version": "1.3",
   "description": "Inteligentne podsumowania stron z panelem bocznym w Perplexity AI.",
   "permissions": [
     "contextMenus",
