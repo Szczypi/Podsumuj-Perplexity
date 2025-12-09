@@ -1,6 +1,6 @@
 # Podsumuj w Perplexity
 
-Rozszerzenie do przeglądarki Firefox, które streszcza aktualnie oglądane filmy na YouTube oraz czytane artykuły ze stron internetowych zeprzy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
+Rozszerzenie do przeglądarki Firefox, które streszcza oglądane filmy na YouTube oraz czytane artykuły ze stron zeprzy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
 ## Najważniejsze funkcje
 
