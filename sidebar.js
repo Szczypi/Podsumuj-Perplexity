@@ -1,8 +1,10 @@
+browser.runtime.connect({ name: "sidebar-connection" });
+
 document.addEventListener("DOMContentLoaded", async () => {
   const contentDiv = document.getElementById("content");
 
   browser.storage.onChanged.addListener((changes, areaName) => {
-    if (areaName === "local" && changes.currentSummary) {
+    if (areaName === "session" && changes.currentSummary) {
       const newValue = changes.currentSummary.newValue;
       if (newValue) {
         displaySummary(contentDiv, newValue);
@@ -12,90 +14,67 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  showEmpty(contentDiv);
+  const stored = await browser.storage.session.get("currentSummary");
+  if (stored.currentSummary) {
+    displaySummary(contentDiv, stored.currentSummary);
+  } else {
+    showEmpty(contentDiv);
+  }
 });
 
 function showEmpty(container) {
-  container.innerHTML = `
-    <div class="empty-state">
-      <div class="empty-state-icon">📄</div>
-      <p>Kliknij ikonę na pasku zadań i użyj przycisku w ustawieniach lub prawego przycisku myszy.</p>
-    </div>
-  `;
+  container.innerHTML =
+    '<div class="empty-state"><div class="empty-state-icon">📋</div><p>Kliknij ikonę na pasku zadań, aby podsumować bieżącą stronę lub użyj prawego przycisku myszy.</p></div>';
 }
 
-function displaySummary(container, summaryObj) {
-  if (summaryObj.status === "pending") {
-    container.innerHTML = `
-      <div class="loading">
-        <div class="spinner"></div>
-        <span>Generuję podsumowanie...</span>
-      </div>
-    `;
+function displaySummary(container, state) {
+  if (state.status === "error") {
+    container.innerHTML = `<div class="error">Błąd: ${state.error || "Nieznany błąd."}</div>`;
     return;
   }
 
-  if (summaryObj.status === "error" || summaryObj.error) {
-    container.innerHTML = `
-      <div class="error">
-        <strong>Błąd:</strong> ${escapeHtml(summaryObj.error || "Nieznany błąd")}
-      </div>
-    `;
+  if (state.status === "pending") {
+    container.innerHTML = `<div class="loading"><div class="spinner"></div><span>Generuję podsumowanie...</span></div>`;
     return;
   }
 
-  if (!summaryObj.data) {
-    showEmpty(container);
+  const summary = state.summary || "";
+
+  if (!summary || summary.trim().length === 0) {
+    container.innerHTML = '<div class="error">Brak podsumowania.</div>';
     return;
   }
 
-  const raw = summaryObj.summary || "";
-  const cleaned = formatText(raw);
-  const settings = summaryObj.settings || {};
+  let html = `<div class="summary-content"><div class="summary-text">`;
 
-  let innerHtml;
+  if (typeof summary === "string") {
+    const lines = summary.split("\n").filter((line) => line.trim());
 
-  if (settings.summaryFormat === "bullets") {
-    const parts = cleaned
-      .split(/(?<=[.!?])\s+(?=[A-ZĄĆĘŁŃÓŚŹŻ])/)
-      .map(s => s.trim())
-      .filter(s => s.length > 0);
+    const isList = lines.some(
+      (line) => /^[\s]*([•\-\*\+]|\d+\.)[\s]/.test(line)
+    ) && lines.length > 1;
 
-    if (parts.length <= 1) {
-      innerHtml = `<p>${cleaned}</p>`;
+    if (isList) {
+      html += "<ul>";
+      lines.forEach((line) => {
+        const cleanLine = line
+          .replace(/^[\s]*([•\-\*\+]|\d+\.)[\s]+/, "")
+          .trim();
+        if (cleanLine) {
+          html += `<li>${cleanLine}</li>`;
+        }
+      });
+      html += "</ul>";
     } else {
-      innerHtml =
-        "<ul>" +
-        parts.map((p) => `<li>${p}</li>`).join("") +
-        "</ul>";
+      lines.forEach((line) => {
+        const trimmed = line.trim();
+        if (trimmed) {
+          html += `<p>${trimmed}</p>`;
+        }
+      });
     }
-  } else {
-    innerHtml = `<p>${cleaned}</p>`;
   }
 
-  const html = `
-    <div class="summary-content">
-      <div class="summary-text">
-        ${innerHtml}
-      </div>
-    </div>
-  `;
-
+  html += `</div></div>`;
   container.innerHTML = html;
-}
-
-function formatText(text) {
-  if (!text) return "";
-
-  let noRefs = text.replace(/\[\d+\][\s\S]*$/m, "");
-
-  let escaped = escapeHtml(noRefs);
-
-  return escaped.replace(/\s+/g, " ").trim();
-}
-
-function escapeHtml(text) {
-  const div = document.createElement("div");
-  div.textContent = text || "";
-  return div.innerHTML;
 }
