@@ -1,4 +1,4 @@
-# Podsumuj w Perplexity
+# ![Perplexity](https://github.com/user-attachments/assets/987c1e04-477d-44f5-8cbb-6bda4742601b) Podsumuj w Perplexity
 
 Rozszerzenie do przeglądarki Firefox które streszcza artykuły ze stron oraz filmy na YouTube przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
