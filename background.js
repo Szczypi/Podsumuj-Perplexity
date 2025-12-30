@@ -1,4 +1,4 @@
-const PERPLEXITY_API_KEY = "KLUCZ_API_PERPLEXITY"; 
+const PERPLEXITY_API_KEY = "KLUCZ_API_PERPLEXITY";
 const PERPLEXITY_API_URL = "https://api.perplexity.ai/chat/completions";
 
 const defaultSettings = {
@@ -17,11 +17,19 @@ async function loadSettings() {
   return stored.settings;
 }
 
-browser.runtime.onInstalled.addListener(loadSettings);
+browser.runtime.onStartup.addListener(async () => {
+  await browser.storage.session.remove("currentSummary");
+});
+
+browser.runtime.onInstalled.addListener(async () => {
+  await loadSettings();
+  await browser.storage.session.remove("currentSummary");
+});
 
 browser.runtime.onConnect.addListener((port) => {
   if (port.name === "sidebar-connection") {
     port.onDisconnect.addListener(async () => {
+      console.log("Panel boczny zamknięty - czyszczenie podsumowania.");
       await browser.storage.session.remove("currentSummary");
     });
   }
@@ -61,7 +69,6 @@ async function updateContextMenu(tab) {
 browser.tabs.onActivated.addListener(async (activeInfo) => {
   const tab = await browser.tabs.get(activeInfo.tabId);
   updateContextMenu(tab);
-  
 });
 
 browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
@@ -133,7 +140,7 @@ async function getPageData(tab, isSelection, selectionText) {
   } else {
     const scriptResults = await browser.scripting.executeScript({
       target: { tabId: tab.id },
-      func: extractMainContent
+      func: extractMainContentWithReadability
     });
 
     if (!scriptResults || !scriptResults[0] || !scriptResults[0].result) {
@@ -147,21 +154,23 @@ async function handleSummarize(tab, isSelection = false, selectionText = null, i
   const settings = await loadSettings();
 
   try {
+    await browser.storage.session.remove("currentSummary");
+
+    if (settings.showInSidebar !== false) {
+      try { await browser.sidebarAction.open(); } catch(e) {}
+      
+      await browser.storage.session.set({
+        currentSummary: { settings, timestamp: Date.now(), status: "pending" }
+      });
+    }
+
     const data = await getPageData(tab, isSelection, selectionText);
-    console.log("Generuję podsumowanie. Tryb (ZAPISANY):", settings.summaryMode);
+    console.log("Generuję podsumowanie. Tryb:", settings.summaryMode);
 
     if (settings.showInSidebar === false) {
       await openPerplexityForTab(data, settings);
       return;
     }
-
-    await browser.storage.session.set({
-      currentSummary: { data, settings, timestamp: Date.now(), status: "pending" }
-    });
-
-    try {
-        await browser.sidebarAction.open();
-    } catch(e) {}
 
     const summary = await generateSummaryWithPerplexity(data, settings);
 
@@ -262,11 +271,41 @@ async function openPerplexityForTab(data, settings) {
     }
 }
 
+function extractMainContentWithReadability() {
+    try {
+        const documentClone = document.cloneNode(true);
+        
+        const reader = new Readability(documentClone);
+        const article = reader.parse();
+        
+        if (article && article.textContent) {
+            let text = article.textContent.trim();
+            
+            if (text.length > 20000) {
+                text = text.substring(0, 20000);
+            }
+            
+            return {
+                url: window.location.href,
+                title: article.title || document.title,
+                content: text,
+                isSelection: false
+            };
+        }
+        
+        return extractMainContent();
+        
+    } catch (error) {
+        console.error("Błąd Readability, używam fallback:", error);
+        return extractMainContent();
+    }
+}
+
 function extractMainContent() {
-    const selectors = ["article", '[role=\"article\"]', "main", '[role=\"main\"]', ".post-content", ".entry-content", ".article-content", ".story-body", ".article-body"];
+    const selectors = ["article", '[role="article"]', "main", '[role="main"]', ".post-content", ".entry-content", ".article-content", ".story-body", ".article-body"];
     let element = document.querySelector(selectors.join(", ")) || document.body;
     const clone = element.cloneNode(true);
-    const toRemove = clone.querySelectorAll('[class*="ad-"], [class*="adv-"], .advertisement, [id*="ad-"], [id*="adv-"], [data-ad-slot], [data-ad-region], .advert, .promoted, .sponsored, .social-share, .social-widget, nav, .navbar, .navigation, footer, .footer, .comments-section, .comment-section, .sidebar, [role=\"complementary\"], iframe, .modal, .popup, .cookie-banner, .metabar');
+    const toRemove = clone.querySelectorAll('[class*="ad-"], [class*="adv-"], .advertisement, [id*="ad-"], [id*="adv-"], [data-ad-slot], [data-ad-region], .advert, .promoted, .sponsored, .social-share, .social-widget, nav, .navbar, .navigation, footer, .footer, .comments-section, .comment-section, .sidebar, [role="complementary"], iframe, .modal, .popup, .cookie-banner, .metabar');
     toRemove.forEach((el) => el.remove());
     let text = clone.innerText || "";
     text = text.replace(/\s+/g, " ").trim();
