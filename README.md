@@ -2,6 +2,8 @@
 
 Rozszerzenie do przeglądarki Firefox które streszcza artykuły ze stron oraz filmy na YouTube przy użyciu API Perplexity i wyświetla podsumowanie w panelu bocznym lub otwiera pełną odpowiedź w serwisie Perplexity.
 
+https://github.com/user-attachments/assets/293a5f4a-4cc8-43b3-ac3d-a28132ef92ed
+
 ## Najważniejsze funkcje
 
 - Podsumowywanie bieżącej strony jednym kliknięciem.
