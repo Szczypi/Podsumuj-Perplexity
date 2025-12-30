@@ -16,6 +16,7 @@
       background-color: #f8f9fa;
       color: #333;
       line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .container {
@@ -51,17 +52,19 @@
       background-color: #fee;
       color: #c33;
       padding: 12px;
-      border-radius: 4px;
+      border-radius: 6px;
       margin-bottom: 12px;
+      border: 1px solid #fcc;
     }
 
     .summary-content {
       background-color: #ffffff;
-      padding: 12px;
-      border-radius: 4px;
+      padding: 16px;
+      border-radius: 8px;
       margin: 0;
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.7;
+      border: 1px solid #e0e0e0;
     }
 
     .summary-text ul {
@@ -71,22 +74,54 @@
     }
 
     .summary-text li {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       display: flex;
       align-items: flex-start;
+      color: #333;
     }
 
     .summary-text li::before {
-      content: "●";
-      color: #000;
+      content: "•";
+      color: #3498db;
       font-weight: bold;
-      margin-right: 8px;
-      line-height: 1.4;
+      margin-right: 10px;
+      line-height: 1.7;
+      font-size: 14px;
     }
 
     .summary-text p {
-      margin: 0 0 8px 0;
+      margin: 0 0 10px 0;
+      color: #333;
     }
+
+    .summary-text strong {
+      font-weight: 600;
+      color: #222;
+    }
+
+    .summary-text em {
+      font-style: italic;
+    }
+
+    .summary-text code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    .summary-text h1,
+    .summary-text h2,
+    .summary-text h3 {
+      margin: 16px 0 8px 0;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .summary-text h1 { font-size: 1.5em; }
+    .summary-text h2 { font-size: 1.3em; }
+    .summary-text h3 { font-size: 1.1em; }
 
     .empty-state {
       text-align: center;
@@ -95,8 +130,111 @@
     }
 
     .empty-state-icon {
-      font-size: 40px;
-      margin-bottom: 12px;
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #ccc #f8f9fa;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f8f9fa;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+      }
+
+      .loading {
+        color: #999;
+      }
+
+      .spinner {
+        border: 3px solid #2a2a2a;
+        border-top: 3px solid #4a9eff;
+      }
+
+      .error {
+        background-color: #3d1f1f;
+        color: #ff6b6b;
+        border: 1px solid #5a2828;
+      }
+
+      .summary-content {
+        background-color: #242424;
+        border: 1px solid #333;
+      }
+
+      .summary-text li {
+        color: #d0d0d0;
+      }
+
+      .summary-text li::before {
+        color: #4a9eff;
+      }
+
+      .summary-text p {
+        color: #d0d0d0;
+      }
+
+      .summary-text strong {
+        color: #e8e8e8;
+      }
+
+      .summary-text code {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+      }
+
+      .summary-text h1,
+      .summary-text h2,
+      .summary-text h3 {
+        color: #e8e8e8;
+      }
+
+      .empty-state {
+        color: #777;
+      }
+
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #444 #1a1a1a;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #444;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     }
   </style>
 </head>
@@ -104,12 +242,13 @@
   <div class="container">
     <div id="content">
       <div class="empty-state">
-        <div class="empty-state-icon">📋</div>
+        <div class="empty-state-icon">📄</div>
         <p>Kliknij ikonę na pasku zadań, aby podsumować bieżącą stronę lub użyj prawego przycisku myszy.</p>
       </div>
     </div>
   </div>
 
+  <script src="marked.js"></script>
   <script src="sidebar.js"></script>
 </body>
 </html>
