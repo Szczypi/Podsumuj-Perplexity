@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Podsumuj w Perplexity",
-  "version": "1.3",
+  "version": "1.5",
   "description": "Inteligentne podsumowania stron z panelem bocznym w Perplexity AI.",
   "permissions": [
     "contextMenus",
@@ -12,7 +12,7 @@
     "notifications"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["readability.js", "background.js"],
     "type": "module"
   },
   "action": {
@@ -42,6 +42,12 @@
       "matches": ["*://www.youtube.com/watch*"],
       "js": ["yt-content.js"],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["readability.js"],
+      "run_at": "document_end",
+      "all_frames": false
     }
   ],
   "icons": {
