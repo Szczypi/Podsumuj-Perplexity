@@ -164,11 +164,8 @@ Readability.prototype = {
   ],
 
   DEPRECATED_SIZE_ATTRIBUTE_ELEMS: ["TABLE", "TH", "TD", "HR", "PRE"],
-
-  // The commented out elements qualify as phrasing content but tend to be
-  // removed by readability when put into paragraphs, so we ignore them here.
+  
   PHRASING_ELEMS: [
-    // "CANVAS", "IFRAME", "SVG", "VIDEO",
     "ABBR",
     "AUDIO",
     "B",
